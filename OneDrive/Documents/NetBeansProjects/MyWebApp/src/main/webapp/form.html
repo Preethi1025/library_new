@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Book Details</title>
+    
+    <script>
+        // Function to handle Enter key navigation
+        document.addEventListener("DOMContentLoaded", function() {
+            let inputs = document.querySelectorAll("input");
+            inputs.forEach((input, index) => {
+                input.addEventListener("keydown", function(event) {
+                    if (event.key === "Enter" || event.key === "ArrowDown") {
+                        event.preventDefault();
+                        if (index < inputs.length - 1) {
+                            inputs[index + 1].focus();
+                        }
+                    } else if (event.key === "ArrowUp") {
+                        event.preventDefault();
+                        if (index > 0) {
+                            inputs[index - 1].focus();
+                        }
+                    }
+                });
+            });
+        });
+        
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .form-group label {
+            width: 220px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 8px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-submit button {
+            padding: 10px 25px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-submit button:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Enter Book Details</h2>
+        <form action="addBook.jsp" method="post">
+            <div class="form-group">
+                <label for="id">ID:</label>
+                <input type="text" id="id" name="id" required>
+            </div>
+            <div class="form-group">
+                <label for="semester">Semester:</label>
+                <input type="text" id="semester" name="semester" required>
+            </div>
+            <div class="form-group">
+                <label for="engg_mba">Engg/MBA:</label>
+                <input type="text" id="engg_mba" name="engg_mba" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year:</label>
+                <input type="text" id="year" name="year" required>
+            </div>
+            <div class="form-group">
+                <label for="month">Month:</label>
+                <input type="text" id="month" name="month" required>
+            </div>
+            <div class="form-group">
+                <label for="date_of_invoice">Date of Invoice:</label>
+                <input type="date" id="date_of_invoice" name="date_of_invoice" required>
+            </div>
+            <div class="form-group">
+                <label for="purchase_type">Purchase Type:</label>
+                <input type="text" id="purchase_type" name="purchase_type">
+            </div>
+            <div class="form-group">
+                <label for="invoice_no">Invoice No:</label>
+                <input type="text" id="invoice_no" name="invoice_no" required>
+            </div>
+            <div class="form-group">
+                <label for="supplier">Book Supplier:</label>
+                <input type="text" id="supplier" name="name_of_the_book_supplier" required>
+            </div>
+            <div class="form-group">
+                <label for="department_subject">Department Subject:</label>
+                <input type="text" id="department_subject" name="department_subject">
+            </div>
+            <div class="form-group">
+                <label for="accn_from">Book Accn No (From):</label>
+                <input type="text" id="accn_from" name="book_accn_no_from">
+            </div>
+            <div class="form-group">
+                <label for="accn_to">Book Accn No (To):</label>
+                <input type="text" id="accn_to" name="book_accn_no_to">
+            </div>
+            <div class="form-group">
+                <label for="no_of_books">No. of Books:</label>
+                <input type="text" id="no_of_books" name="no_of_books">
+            </div>
+            <div class="form-group">
+                <label for="no_of_books_purchased">Books Purchased:</label>
+                <input type="text" id="no_of_books_purchased" name="no_of_books_purchased">
+            </div>
+            <div class="form-group">
+                <label for="no_of_books_donated">Books Donated:</label>
+                <input type="text" id="no_of_books_donated" name="no_of_books_donated">
+            </div>
+            <div class="form-group">
+                <label for="acc_reg_no">Acc. Reg. No:</label>
+                <input type="text" id="acc_reg_no" name="acc_reg_no">
+            </div>
+            <div class="form-group">
+                <label for="accn_register_page_no_from">Accn Reg. Page No (From):</label>
+                <input type="text" id="accn_register_page_no_from" name="accn_register_page_no_from">
+            </div>
+            <div class="form-group">
+                <label for="accn_register_page_no_to">Accn Reg. Page No (To):</label>
+                <input type="text" id="accn_register_page_no_to" name="accn_register_page_no_to">
+            </div>
+            <div class="form-group">
+                <label for="discount_percentage">Discount (%):</label>
+                <input type="text" id="discount_percentage" name="discount_percentage">
+            </div>
+            <div class="form-group">
+                <label for="gross_invoice_amount">Gross Invoice Amount:</label>
+                <input type="text" id="gross_invoice_amount" name="gross_invoice_amount">
+            </div>
+            <div class="form-group">
+                <label for="discount_amount">Discount Amount:</label>
+                <input type="text" id="discount_amount" name="discount_amount">
+            </div>
+            <div class="form-group">
+                <label for="net_amount">Net Amount:</label>
+                <input type="text" id="net_amount" name="net_amount">
+            </div>
+            <div class="form-submit">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
