@@ -1,22 +1,23 @@
 <%@ page import="java.sql.*" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="dConfig.jsp" %>
+
 <%
-    Connection conn = null;
+    Connection conn=getConnection();
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
-    String url = "jdbc:mysql://localhost:3306/library";
-    String user = "root";
-    String password = "Preethi1002@";
+//    String url = "jdbc:mysql://localhost:3306/library";
+//    String user = "root";
+//    String password = "Preethi1002@";
 
     // Get parameters from request
     String year = request.getParameter("year");
     String semester = request.getParameter("semester");
     String supplierName = request.getParameter("supplier");
 
-    try {
+     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection(url, user, password);
+//        conn = DriverManager.getConnection(url, user, password);
          
         // Main Summary Query
         String query = "SELECT category, " +
@@ -74,7 +75,7 @@
             <td><%= totalSpecimens %></td>
             <td><%= totalPurchased %></td>
             <td><%= (totalPurchased + totalSpecimens) %></td>
-            <td>₹<%= String.format("%.2f", totalAmount) %></td>
+            <td>?<%= String.format("Rs.%.2f", totalAmount) %></td>
         </tr>
         <% } %>
 
@@ -85,7 +86,7 @@
             <td><strong><%= grandTotalSpecimens %></strong></td>
             <td><strong><%= grandTotalPurchased %></strong></td>
             <td><strong><%= (grandTotalPurchased + grandTotalSpecimens) %></strong></td>
-            <td><strong>₹<%= String.format("%.2f", grandTotalAmount) %></strong></td>
+            <td><strong>?<%= String.format("%.2f", grandTotalAmount) %></strong></td>
         </tr>
     </tbody>
 </table>
@@ -119,7 +120,7 @@
     rs = pstmt.executeQuery();
 %>
 
-<!-- 📌 Summarized Report Table -->
+<!-- ? Summarized Report Table -->
 <h3>Summarized Report</h3>
 <table class="table table-bordered">
     <thead class="table-dark">
@@ -148,7 +149,7 @@
             <td><%= specimens %></td>
             <td><%= purchased %></td>
             <td><%= totalBooks %></td>
-            <td>₹<%= String.format("%.2f", totalAmount) %></td>
+            <td>?<%= String.format("%.2f", totalAmount) %></td>
         </tr>
         <% } %>
     </tbody>
@@ -197,7 +198,7 @@
             <td><%= rs.getInt("total_specimens") %></td>
             <td><%= rs.getInt("total_purchased") %></td>
             <td><%= rs.getInt("total_books") %></td>
-            <td>₹<%= String.format("%.2f", rs.getDouble("total_amount")) %></td>
+            <td>?<%= String.format("%.2f", rs.getDouble("total_amount")) %></td>
         </tr>
         <% } else { %>
         <tr><td colspan="6">No data found for this supplier.</td></tr>

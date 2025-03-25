@@ -3,10 +3,11 @@
 
 <%!  
     public static Connection getConnection() throws Exception {
-        String url = "jdbc:mysql://localhost:3306/library"; 
-        String user = "root"; 
-        String password = "Preethi1002@"; 
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        String url = "jdbc:mysql://centerbeam.proxy.rlwy.net:10790/railway"; // Update host, port, and database name
+        String user = "root";  // Try 'railway' if 'root' doesn't work
+        String password = "zgFRIQqxjQkTfWprpIIurvZiEuWYrbLs"; // Use the correct Railway password
+
+        Class.forName("com.mysql.cj.jdbc.Driver"); // Ensure MySQL JDBC driver is loaded
         return DriverManager.getConnection(url, user, password);
     }
 %>

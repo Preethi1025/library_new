@@ -2,9 +2,9 @@
 <%@ include file="dConfig.jsp" %>
 <%
     // Database credentials
-    String URL = "jdbc:mysql://localhost:3306/library";
-    String USER = "root";
-    String PASSWORD = "Preethi1002@";
+//    String URL = "jdbc:mysql://localhost:3306/library";
+//    String USER = "root";
+//    String PASSWORD = "Preethi1002@";
 
     // Retrieve form data safely (handling null and empty values inline)
     int id = (request.getParameter("id") != null && !request.getParameter("id").trim().isEmpty()) 
@@ -62,7 +62,7 @@
                      ? Integer.parseInt(request.getParameter("net_amount")) : 0;
 
     // Insert data into MySQL
-    try (Connection connection = DriverManager.getConnection(URL, USER, PASSWORD);
+    try (Connection connection = getConnection();
          PreparedStatement statement = connection.prepareStatement(
                  "INSERT INTO `2023_2024_data` (id, semester, engg_mba, year, month, date_of_invoice, purchase_type, invoice_no, " +
                  "name_of_the_book_supplier, department_subject, book_accn_no_from, book_accn_no_to, no_of_books, no_of_books_purchased, " +
