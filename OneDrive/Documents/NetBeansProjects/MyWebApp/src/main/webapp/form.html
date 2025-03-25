@@ -6,11 +6,12 @@
     <title>Enter Book Details</title>
     
     <script>
-        // Function to handle Enter key navigation
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             let inputs = document.querySelectorAll("input");
+
+            // Handle Enter key navigation
             inputs.forEach((input, index) => {
-                input.addEventListener("keydown", function(event) {
+                input.addEventListener("keydown", function (event) {
                     if (event.key === "Enter" || event.key === "ArrowDown") {
                         event.preventDefault();
                         if (index < inputs.length - 1) {
@@ -24,8 +25,21 @@
                     }
                 });
             });
+
+            // Auto-generate ID (starting from 60)
+//            let lastId = localStorage.getItem("lastId") ? parseInt(localStorage.getItem("lastId")) : 59;
+//            document.getElementById("id").value = lastId + 1;
+//            localStorage.setItem("lastId", lastId + 1);
+
+            // Auto-fill Year and Month from Date of Invoice
+            document.getElementById("date_of_invoice").addEventListener("change", function () {
+                let selectedDate = new Date(this.value);
+                if (!isNaN(selectedDate.getTime())) {
+                    document.getElementById("year").value = selectedDate.getFullYear();
+                    document.getElementById("month").value = selectedDate.getMonth() + 1; // Month is 0-based in JS
+                }
+            });
         });
-        
     </script>
 
     <style>
@@ -98,7 +112,7 @@
         <form action="addBook.jsp" method="post">
             <div class="form-group">
                 <label for="id">ID:</label>
-                <input type="text" id="id" name="id" required>
+                <input type="text" id="id" name="id" readonly>
             </div>
             <div class="form-group">
                 <label for="semester">Semester:</label>
@@ -110,11 +124,11 @@
             </div>
             <div class="form-group">
                 <label for="year">Year:</label>
-                <input type="text" id="year" name="year" required>
+                <input type="text" id="year" name="year" readonly>
             </div>
             <div class="form-group">
                 <label for="month">Month:</label>
-                <input type="text" id="month" name="month" required>
+                <input type="text" id="month" name="month" readonly>
             </div>
             <div class="form-group">
                 <label for="date_of_invoice">Date of Invoice:</label>

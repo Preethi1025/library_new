@@ -6,28 +6,113 @@
     <title>Library Statements</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-size: 18px; /* Increased font size */
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-weight: bold;
+            color: #007bff;
+            text-align: center;
+            padding-bottom: 15px;
+        }
+
+        .row {
+            background-color: #e3f2fd; /* Light blue for contrast */
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #343a40; /* Darker border */
+        }
+
+        select {
+            font-size: 18px;
+            padding: 10px;
+            border: 2px solid #343a40; /* Dark border for dropdowns */
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        #tableContainer {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .table {
+            border: 2px solid #343a40; /* Darker table border */
+            font-size: 18px; /* Increased font size */
+            background-color: #ffffff; /* White background for table */
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .table thead {
+            background-color: #007bff;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            border: 2px solid #343a40; /* Darker header border */
+        }
+
+        .table th, .table td {
+            text-align: center;
+            font-size: 18px;
+            border: 2px solid #343a40; /* Darker cell borders */
+            padding: 10px;
+        }
+
+        .table-responsive {
+            max-height: 500px;
+            overflow-y: auto;
+            background-color: #ffffff; /* White background */
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
 <body>
     <div class="container mt-4">
-        <h2 class="text-center">Library Summary Report</h2>
+        <h2>Library Summary Report</h2>
 
         <div class="row mb-3">
             <div class="col-md-3">
-                <label for="year">Select Year:</label>
+                <label for="year" class="fw-bold">Select Year:</label>
                 <select id="year" class="form-select">
                     <option value="2023">2023</option>
                     <option value="2024">2024</option>
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="semester">Select Semester:</label>
+                <label for="semester" class="fw-bold">Select Semester:</label>
                 <select id="semester" class="form-select">
                     <option value="Odd">Odd</option>
                     <option value="Even">Even</option>
                 </select>
             </div>
             <div class="col-md-3">
-                <label for="supplier">Select Supplier:</label>
+                <label for="supplier" class="fw-bold">Select Supplier:</label>
                 <select id="supplier" class="form-select">
                     <option value="">All Suppliers</option>
                     <option value="TBH">TBH</option>
@@ -40,12 +125,12 @@
                 </select>
             </div>
             <div class="col-md-3 d-flex align-items-end">
-                <button class="btn btn-primary" onclick="fetchData()">Fetch Data</button>
+                <button class="btn btn-primary w-100" onclick="fetchData()">Fetch Data</button>
             </div>
         </div>
 
         <div id="tableContainer">
-            <!-- Data will be displayed here -->
+            <!-- Data will be dynamically displayed here -->
         </div>
     </div>
 

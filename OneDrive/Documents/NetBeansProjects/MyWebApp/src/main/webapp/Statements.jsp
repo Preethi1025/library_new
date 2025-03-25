@@ -75,7 +75,7 @@
             <td><%= totalSpecimens %></td>
             <td><%= totalPurchased %></td>
             <td><%= (totalPurchased + totalSpecimens) %></td>
-            <td>?<%= String.format("Rs.%.2f", totalAmount) %></td>
+            <td>Rs.<%= String.format("%.2f", totalAmount) %></td>
         </tr>
         <% } %>
 
@@ -86,7 +86,7 @@
             <td><strong><%= grandTotalSpecimens %></strong></td>
             <td><strong><%= grandTotalPurchased %></strong></td>
             <td><strong><%= (grandTotalPurchased + grandTotalSpecimens) %></strong></td>
-            <td><strong>?<%= String.format("%.2f", grandTotalAmount) %></strong></td>
+            <td><strong>Rs.<%= String.format("%.2f", grandTotalAmount) %></strong></td>
         </tr>
     </tbody>
 </table>
@@ -149,7 +149,7 @@
             <td><%= specimens %></td>
             <td><%= purchased %></td>
             <td><%= totalBooks %></td>
-            <td>?<%= String.format("%.2f", totalAmount) %></td>
+            <td>Rs.<%= String.format("%.2f", totalAmount) %></td>
         </tr>
         <% } %>
     </tbody>
@@ -198,7 +198,7 @@
             <td><%= rs.getInt("total_specimens") %></td>
             <td><%= rs.getInt("total_purchased") %></td>
             <td><%= rs.getInt("total_books") %></td>
-            <td>?<%= String.format("%.2f", rs.getDouble("total_amount")) %></td>
+            <td>Rs.<%= String.format("%.2f", rs.getDouble("total_amount")) %></td>
         </tr>
         <% } else { %>
         <tr><td colspan="6">No data found for this supplier.</td></tr>
